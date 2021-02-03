@@ -15,10 +15,14 @@ public class UserDaoImp implements UserDao{
 
     private final EntityManager entityManager;
 
-    @Autowired
     public UserDaoImp(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
+
+//    @Autowired
+//    public UserDaoImp(EntityManager entityManager) {
+//        this.entityManager = entityManager;
+//    }
 
     @Override
     public void save(User user) {

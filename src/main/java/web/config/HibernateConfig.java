@@ -22,8 +22,12 @@ import java.util.Properties;
 @PropertySource("classpath:db.properties")
 public class HibernateConfig {
 
+    private final Environment environment;
+
     @Autowired
-    Environment environment;
+    public HibernateConfig(Environment environment) {
+        this.environment = environment;
+    }
 
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
@@ -62,9 +66,9 @@ public class HibernateConfig {
 
     protected Properties additionalProperties() {
         Properties properties = new Properties();
-        properties.setProperty("hibernate.hbm2ddl.auto", environment.getProperty("hibernate.hbm2dll.auto"));
-        properties.setProperty("hibernate.show_sql", environment.getProperty("hibernate.show_sql"));
-        properties.setProperty("hibernate.dialect", environment.getProperty("hibernate.dialect"));
+        properties.put("hibernate.hbm2ddl.auto", environment.getRequiredProperty("hibernate.hbm2dll.auto"));
+        properties.put("hibernate.show_sql", environment.getRequiredProperty("hibernate.show_sql"));
+        properties.put("hibernate.dialect", environment.getRequiredProperty("hibernate.dialect"));
         return properties;
     }
 }

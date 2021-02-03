@@ -9,8 +9,12 @@ import web.model.User;
 @Service
 public class UserServiceImp implements UserService {
 
+    private final UserDao userDao;
+
     @Autowired
-    UserDao userDao;
+    public UserServiceImp(UserDao userDao) {
+        this.userDao = userDao;
+    }
 
     @Override
     @Transactional
