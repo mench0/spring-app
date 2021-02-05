@@ -1,0 +1,9 @@
+/Users/armen/IdeaProjects/spring-app/src/main/java/web/dao/UserDao.java
+/Users/armen/IdeaProjects/spring-app/src/main/java/web/controllers/UserController.java
+/Users/armen/IdeaProjects/spring-app/src/main/java/web/config/HibernateConfig.java
+/Users/armen/IdeaProjects/spring-app/src/main/java/web/dao/UserDaoImp.java
+/Users/armen/IdeaProjects/spring-app/src/main/java/web/model/User.java
+/Users/armen/IdeaProjects/spring-app/src/main/java/web/config/WebConfig.java
+/Users/armen/IdeaProjects/spring-app/src/main/java/web/config/AppInit.java
+/Users/armen/IdeaProjects/spring-app/src/main/java/web/service/UserService.java
+/Users/armen/IdeaProjects/spring-app/src/main/java/web/service/UserServiceImp.java

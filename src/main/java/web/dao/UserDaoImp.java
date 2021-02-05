@@ -1,28 +1,19 @@
 package web.dao;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import web.model.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import java.util.List;
+
 
 @Repository
 public class UserDaoImp implements UserDao{
 
-    private final EntityManager entityManager;
-
-    public UserDaoImp(EntityManager entityManager) {
-        this.entityManager = entityManager;
-    }
-
-//    @Autowired
-//    public UserDaoImp(EntityManager entityManager) {
-//        this.entityManager = entityManager;
-//    }
+    @PersistenceContext
+    EntityManager entityManager;
 
     @Override
     public void save(User user) {
@@ -35,7 +26,7 @@ public class UserDaoImp implements UserDao{
     }
 
     @Override
-    public void update(Long id, User user) {
+    public void update(User user) {
         entityManager.merge(user);
     }
 
@@ -43,6 +34,12 @@ public class UserDaoImp implements UserDao{
     public void delete(Long id) {
         User user = entityManager.find(User.class, id);
         entityManager.remove(user);
+    }
+
+    @Override
+    public List<User> getAllUsers() {
+        TypedQuery<User> allUsers = entityManager.createQuery("SELECT u FROM User u", User.class);
+        return allUsers.getResultList();
     }
 
 }
